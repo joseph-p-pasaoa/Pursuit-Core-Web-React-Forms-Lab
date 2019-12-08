@@ -45,22 +45,24 @@ class App extends React.Component {
     }
   }
 
-  doMath = (operation, inputStr) => {
+  parseInput = (inputStr) => {
     const inputArrayed = inputStr.split(',');
-    const inputArr = inputArrayed.filter(el => !!el && !!el.trim() && !isNaN(parseFloat(el)))
+    return inputArrayed.filter(el => !!el && !!el.trim() && !isNaN(parseFloat(el)))
       .map(el => parseFloat(el.trim()));
-    
+  }
+
+  doMath = (operation, parsedInput) => {
     switch (operation) {
       case "sum":
-        return inputArr.reduce((sum, curr) => sum += curr);
+        return parsedInput.reduce((sum, curr) => sum += curr);
       case "average":
-        const sum = inputArr.reduce((sum, curr) => sum += curr);
-        return (sum / inputArr.length).toFixed(3);
+        const sum = parsedInput.reduce((sum, curr) => sum += curr);
+        return (sum / parsedInput.length).toFixed(3);
       case "mode":
         const counter = {};
         let highestCounter = 0;
         let mode = [];
-        for (let num of inputArr) {
+        for (let num of parsedInput) {
           if (!counter[num]) {
             counter[num] = 1;
           } else {
@@ -76,7 +78,7 @@ class App extends React.Component {
         }
         return mode.join(', ');
       default:
-        break;
+        return "error: please check your input and try again";
     }
   }
 
@@ -91,8 +93,13 @@ class App extends React.Component {
           message: "Please enter a valid comma-delimited list of numbers"
       });
     } else {
+      const parsedIn = this.parseInput(e.target[0].value.trim());
+      const showInput = 'input:\n' + parsedIn.join('\n');
+      const output = this.doMath(e.target[1].value, parsedIn);
+      const showOutput = e.target[1].value + ':\n' + output;
       this.setState({
-          output: this.doMath(e.target[1].value, e.target[0].value.trim())
+          input: showInput,
+          output: showOutput
       });
     }
   }
@@ -147,7 +154,7 @@ class App extends React.Component {
           <hr />
         </form>
         <div>
-          <textarea id="areaInput" disabled></textarea>
+          <textarea id="areaInput" value={input} disabled></textarea>
           <textarea id="areaOutput" value={output} disabled></textarea>
         </div>
       </div>
