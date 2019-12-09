@@ -54,20 +54,19 @@ table {
 }
 
 
-/* FONT INITS
+/* FONT INITS */
 @font-face {
-  font-family: 'Calistoga';
-  src: url('./assets/fonts/Calistoga/Calistoga-Regular.ttf') format('truetype');
+  font-family: 'Sulphur Point';
+  src: url('./assets/fonts/Sulphur_Point/SulphurPoint-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Fredericka the Great';
-  src: url('./assets/fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf') format('truetype');
+  font-family: 'Ubuntu Mono';
+  src: url('./assets/fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-*/
 
 
 /* MAIN STYLE */
@@ -80,6 +79,8 @@ html, body, .App, div#flex-base {
 
 body {
   font-family: 'Sulphur Point', sans-serif;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .App {
@@ -95,19 +96,66 @@ div#flex-base, form#formNumArr {
 }
 
 h1 {
-  font-size: 3.3em;
+  font-size: 4em;
+  margin: 72px 12px 12px 12px;
 }
 
-input#txtNumArr {
-  display: block;
+p#author {
+  font-size: 0.75em;
+  margin-bottom: 72px;
+}
+
+form {
+  margin: 12px;
+}
+
+input[type="text"] {
+  outline: none;
+  font-size: 1em;
+  padding: 0px 3px 1px 3px;
+  width: 360px;
+  margin: 3px 12px 6px 12px;
+
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+select {
+  outline: none;
+  margin-bottom: 6px;
+  height: 18px;
+}
+
+p#msg {
+  margin: 12px;
+  
+  color: red;
+}
+
+button {
+  width: 90px;
+  height: 20px;
 }
 
 textarea {
   width: 200px;
-  height: 250px;
+  height: 300px;
   margin: 12px;
   padding: 6px 12px;
+  border: solid 3px;
+  border-radius: 3px;
+  resize: none;
 
   cursor: text;
   font-size: 1em;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: bold;
+  line-height: 1.25em;
+
+  background-color: #111;
+  color: deeppink;
+}
+
+textarea#areaOutput {
+  background-color: deeppink;
+  color: #111;
 }

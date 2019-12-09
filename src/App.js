@@ -114,7 +114,7 @@ class App extends React.Component {
         this.setState({
             message: "..."
         });
-      }, 2000);
+      }, 4000);
     }
   }
 
@@ -129,33 +129,36 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1>Number Array Manipulator</h1>
-        <p>Enter numbers below, separated by commas. Spaces not required.</p>
-        <form id="formNumArr" onSubmit={this.handleSubmit}>
-          <input 
-            type="text" 
-            id="txtValue" 
-            name="txtValue" 
-            value={txtValue} 
-            onKeyDown={this.handleKeyDown} 
-            onChange={this.handleChange} 
-            placeholder="Enter numbers here" 
-            required 
-            autoFocus
-          />
-          <select id="selectValue" name="selectValue" value={selectValue} onChange={this.handleChange}>
-            <option value="" disabled>-- Choose an operation</option>
-            <option value="sum">sum</option>
-            <option value="average">average</option>
-            <option value="mode">mode</option>
-          </select>
-          <p id="msg">{message}</p>
-          <button id="btnNumArr">Calculate</button>
-          <hr />
-        </form>
-        <div>
-          <textarea id="areaInput" value={input} disabled></textarea>
-          <textarea id="areaOutput" value={output} disabled></textarea>
+        <div id="flex-base">
+          <h1>Number Array Manipulator</h1>
+          <p id="author">Copyright ©2019 by Joseph P. Pasaoa. All rights reserved.</p>
+          <p>Enter numbers below, separated by commas. Spaces not required.</p>
+          <form id="formNumArr" onSubmit={this.handleSubmit}>
+            <input 
+              type="text" 
+              id="txtValue" 
+              name="txtValue" 
+              value={txtValue} 
+              // style={{ backgroundColor: "#0e693b", color: "#fff" }}
+              onKeyDown={this.handleKeyDown} 
+              onChange={this.handleChange} 
+              placeholder="Enter numbers here" 
+              required 
+              autoFocus
+            />
+            <select id="selectValue" name="selectValue" value={selectValue} onChange={this.handleChange}>
+              <option value="" disabled>-- Choose an operation</option>
+              <option value="sum">sum</option>
+              <option value="average">average</option>
+              <option value="mode">mode</option>
+            </select>
+            <p id="msg">{message}</p>
+            <button id="btnNumArr">Calculate</button>
+          </form>
+          <div>
+            <textarea id="areaInput" value={input} disabled></textarea>
+            <textarea id="areaOutput" value={output} disabled></textarea>
+          </div>
         </div>
       </div>
     );
