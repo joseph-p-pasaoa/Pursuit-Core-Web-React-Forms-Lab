@@ -1,5 +1,13 @@
 # Pursuit-Core-Web-Forms-Lab
 
+### Completed MVP Screen Capture
+
+![My completed mvp screencap](./readme/screencap.png)
+
+---
+
+## Directions
+
 Build a React app that has the following functionality:
 
 - An input where the user can enter the values in an array
